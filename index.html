@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatusBuddy - DIY IoT High Five System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hand-paper"></i>
+                <span>StatusBuddy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#hardware">Hardware</a></li>
+                <li><a href="#bauanleitung">Bauanleitung</a></li>
+                <li><a href="#modelle">3D-Modelle</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    StatusBuddy
+                    <span class="gradient-text">DIY IoT High Five System</span>
+                </h1>
+                <p class="hero-description">
+                    Ein intelligentes IoT-System für emotionale Verbindungen über die Ferne. 
+                    Tausche "High Fives" mit deinen Liebsten aus - egal wo auf der Welt sie sind.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#bauanleitung" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Jetzt bauen
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        Mehr erfahren
+                    </a>
+                    <a href="https://github.com/Dracanio/StatusBuddy.git" target="_blank" class="btn btn-github">
+                        <i class="fab fa-github"></i>
+                        Code Repository
+                    </a>
+                </div>
+                            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">~€40</span>
+                    <span class="stat-label">Kosten pro Gerät</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">2-6 Tage</span>
+                    <span class="stat-label">Bauzeit</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Weltweit</span>
+                    <span class="stat-label">Reichweite</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Open Source</span>
+                    <span class="stat-label">C++ & Arduino</span>
+                </div>
+            </div>
+            </div>
+            <div class="hero-visual">
+                <div class="demo-container">
+                    <div class="demo-video-wrapper">
+                        <video 
+                            class="demo-video" 
+                            autoplay 
+                            muted 
+                            loop 
+                            playsinline
+                            poster="">
+                            <source src="assets/IMG_0507.mov" type="video/mp4">
+                            <source src="assets/IMG_0507.mov" type="video/quicktime">
+                            Dein Browser unterstützt das Video-Format nicht.
+                        </video>
+                        <div class="video-overlay">
+                            <div class="play-button" onclick="toggleVideo()">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-caption">
+                        <h3>StatusBuddy Prototyp in Aktion</h3>
+                        <p>Sieh dir an, wie unser DIY High Five System funktioniert!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">So funktioniert's</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon touch">
+                        <i class="fas fa-hand-pointer"></i>
+                    </div>
+                    <h3>Berührung erkennen</h3>
+                    <p>Touch-Sensor registriert Berührung und aktiviert das System</p>
+                    <div class="status-color red"></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon signal">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Signal senden</h3>
+                    <p>MQTT-Nachricht wird über das Internet an das Partnergerät gesendet</p>
+                    <div class="status-color blue"></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon feedback">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>High Five!</h3>
+                    <p>Bei gleichzeitiger Berührung: Grünes Licht, Buzzer und Vibration</p>
+                    <div class="status-color green"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardware Section -->
+    <section id="hardware" class="hardware">
+        <div class="container">
+            <h2 class="section-title">Hardware-Komponenten</h2>
+            <div class="hardware-grid">
+                <div class="hardware-card">
+                    <div class="hardware-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>ESP32 Development Board</h3>
+                    <div class="hardware-details">
+                        <span class="quantity">2x</span>
+                        <span class="price">€15-20</span>
+                    </div>
+                    <p>Mikrocontroller mit WiFi/Bluetooth</p>
+                </div>
+                <div class="hardware-card">
+                    <div class="hardware-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Grove RGB LCD Display</h3>
+                    <div class="hardware-details">
+                        <span class="quantity">2x</span>
+                        <span class="price">€20-25</span>
+                    </div>
+                    <p>16x2 LCD mit RGB Hintergrundbeleuchtung</p>
+                </div>
+                <div class="hardware-card">
+                    <div class="hardware-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <h3>Touch-Sensor</h3>
+                    <div class="hardware-details">
+                        <span class="quantity">2x</span>
+                        <span class="price">€3-5</span>
+                    </div>
+                    <p>Kapazitiver Touch-Sensor</p>
+                </div>
+                <div class="hardware-card">
+                    <div class="hardware-icon">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <h3>Buzzer & Vibration</h3>
+                    <div class="hardware-details">
+                        <span class="quantity">2x + 2x</span>
+                        <span class="price">€5-8</span>
+                    </div>
+                    <p>Akustisches und haptisches Feedback</p>
+                </div>
+            </div>
+            <div class="total-cost">
+                <span class="cost-label">Gesamtkosten pro Gerät:</span>
+                <span class="cost-amount">~€35-50</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Build Guide Section -->
+    <section id="bauanleitung" class="build-guide">
+        <div class="container">
+            <h2 class="section-title">Schritt-für-Schritt Bauanleitung</h2>
+            <div class="build-phases">
+                <div class="phase-card">
+                    <div class="phase-number">1</div>
+                    <div class="phase-content">
+                        <h3>Hardware vorbereiten</h3>
+                        <ul>
+                            <li>ESP32 testen mit Blink-Sketch</li>
+                            <li>Komponenten nach Schaltplan verdrahten</li>
+                            <li>Erste Funktionstests durchführen</li>
+                        </ul>
+                        <span class="phase-duration">Tag 1-2</span>
+                    </div>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">2</div>
+                    <div class="phase-content">
+                        <h3>Software-Setup</h3>
+                        <ul>
+                            <li>PlatformIO installieren</li>
+                            <li>Code konfigurieren (config.h)</li>
+                            <li>Firmware auf ESP32 hochladen</li>
+                        </ul>
+                        <span class="phase-duration">Tag 2-3</span>
+                    </div>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">3</div>
+                    <div class="phase-content">
+                        <h3>Inbetriebnahme</h3>
+                        <ul>
+                            <li>MQTT Broker einrichten (HiveMQ)</li>
+                            <li>WiFi über Access Point konfigurieren</li>
+                            <li>High Five zwischen Geräten testen</li>
+                        </ul>
+                        <span class="phase-duration">Tag 3-4</span>
+                    </div>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">4</div>
+                    <div class="phase-content">
+                        <h3>Finalisierung</h3>
+                        <ul>
+                            <li>3D-Gehäuse drucken und montieren</li>
+                            <li>Finale Tests und Optimierung</li>
+                            <li>Langzeit-Stabilitätstest</li>
+                        </ul>
+                        <span class="phase-duration">Tag 5-6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Models Section -->
+    <section id="modelle" class="models">
+        <div class="container">
+            <h2 class="section-title">3D-Druckmodelle</h2>
+            <p class="models-intro">Unser StatusBuddy Gehäuse besteht aus zwei separaten Teilen für einfachen Zusammenbau:</p>
+            <div class="models-grid">
+                <div class="model-card featured">
+                    <div class="model-preview main">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Hauptgehäuse</h3>
+                    <div class="model-specs">
+                        <span><i class="fas fa-clock"></i> 4-5 Stunden</span>
+                        <span><i class="fas fa-layer-group"></i> PLA/PETG</span>
+                    </div>
+                    <p>Hauptkörper für ESP32, Display und alle Komponenten</p>
+                    <button class="btn btn-outline" onclick="downloadFile('assets/3d-models/main.stl')">
+                        <i class="fas fa-download"></i>
+                        Download main.stl
+                    </button>
+                </div>
+                <div class="model-card">
+                    <div class="model-preview lid">
+                        <i class="fas fa-square"></i>
+                    </div>
+                    <h3>Deckel</h3>
+                    <div class="model-specs">
+                        <span><i class="fas fa-clock"></i> 1-2 Stunden</span>
+                        <span><i class="fas fa-layer-group"></i> PLA/PETG</span>
+                    </div>
+                    <p>Abnehmbarer Deckel für einfachen Zugang zur Hardware</p>
+                    <button class="btn btn-outline" onclick="downloadFile('assets/3d-models/lid.stl')">
+                        <i class="fas fa-download"></i>
+                        Download lid.stl
+                    </button>
+                </div>
+            </div>
+            <div class="print-info">
+                <h3>Druck-Empfehlung</h3>
+                <div class="print-settings">
+                    <div class="print-setting">
+                        <strong>Layer Height:</strong> 0.2mm
+                    </div>
+                    <div class="print-setting">
+                        <strong>Infill:</strong> 20%
+                    </div>
+                    <div class="print-setting">
+                        <strong>Supports:</strong> Ja (nur bei Overhangs >45°)
+                    </div>
+                    <div class="print-setting">
+                        <strong>Material:</strong> PLA (210°C) oder PETG (240°C)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Specs Section -->
+    <section class="tech-specs">
+        <div class="container">
+            <h2 class="section-title">Technische Spezifikationen</h2>
+            <div class="specs-grid">
+                <div class="spec-group">
+                    <h3>Performance</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">Boot-Zeit</span>
+                        <span class="spec-value">~3 Sekunden</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Touch-Latenz</span>
+                        <span class="spec-value">&lt;100ms</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">MQTT Roundtrip</span>
+                        <span class="spec-value">200-500ms</span>
+                    </div>
+                </div>
+                <div class="spec-group">
+                    <h3>Hardware</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">Mikrocontroller</span>
+                        <span class="spec-value">ESP32 Dual Core</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">RAM</span>
+                        <span class="spec-value">320KB SRAM</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Stromverbrauch</span>
+                        <span class="spec-value">~80mA aktiv</span>
+                    </div>
+                </div>
+                <div class="spec-group">
+                    <h3>Konnektivität</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">WiFi Reichweite</span>
+                        <span class="spec-value">Bis zu 50m</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Internet-Reichweite</span>
+                        <span class="spec-value">Weltweit</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Reconnect-Zeit</span>
+                        <span class="spec-value">&lt;5 Sekunden</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <i class="fas fa-hand-paper"></i>
+                        <span>StatusBuddy</span>
+                    </div>
+                    <p>Ein DIY IoT-Projekt für emotionale Verbindungen über die Ferne</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Projekt</h4>
+                        <a href="#features">Features</a>
+                        <a href="#hardware">Hardware</a>
+                        <a href="#bauanleitung">Bauanleitung</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Ressourcen</h4>
+                        <a href="#modelle">3D-Modelle</a>
+                        <a href="https://github.com/Dracanio/StatusBuddy.git" target="_blank">GitHub Repository</a>
+                        <a href="#">Dokumentation</a>
+                    </div>
+                </div>
+            </div>
+                            <div class="footer-bottom">
+                    <p>&copy; 2025 StatusBuddy - Ein Uni-Projekt | Open Source Hardware & Software | <a href="https://github.com/Dracanio/StatusBuddy.git" target="_blank" style="color: var(--primary-blue); text-decoration: none;">GitHub Repository</a></p>
+                </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
